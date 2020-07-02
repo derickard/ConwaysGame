@@ -21,7 +21,7 @@ namespace ConwaysGame
                 // Console.WriteLine($"Generation: {i}");
                 Console.Clear();
                 Display(cells);
-                Thread.Sleep(2000);
+                Thread.Sleep(1000);
                 cells = DoGeneration(cells);
             }
 
@@ -182,9 +182,9 @@ namespace ConwaysGame
         public static int[,] RemoveBottomRow(int[,] old)
         {
             int[,] newCells = new int[old.GetLength(0) - 1, old.GetLength(1)];
-            for (int i = 0; i < old.GetLength(0); i++)
+            for (int i = 0; i < newCells.GetLength(0); i++)
             {
-                for (int j = 0; j < newCells.GetLength(1); j++)
+                for (int j = 0; j < old.GetLength(1); j++)
                 {
                     newCells[i, j] = old[i, j];
                 }

@@ -16,6 +16,9 @@ namespace ConwaysGame
 
             // Console.WriteLine("Glider");
             ConwayLife.GetGeneration(gliders[0], 5);
+
+            int [,] result = ConwayLife.GetGeneration(roundTwo, 16);
+            Console.WriteLine($"{result.GetLength(0)}x{result.GetLength(1)}");
         }
     }
 }
