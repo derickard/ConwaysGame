@@ -21,14 +21,14 @@ namespace ConwaysGame
                 // Console.WriteLine($"Generation: {i}");
                 Console.Clear();
                 Display(cells);
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
                 cells = DoGeneration(cells);
             }
 
             // Console.WriteLine("Before Crop");
             // Display(cells);
-            cells = Crop(cells);
-            //Console.WriteLine("Final");
+            // cells = Crop(cells);
+            // Console.WriteLine("Final");
             Console.Clear();
             Display(cells);
             return cells;
@@ -39,10 +39,10 @@ namespace ConwaysGame
         {
             int[,] result = new int[cells.GetLength(0), cells.GetLength(1)];
 
-            int rightCol = 0;
-            int leftCol = 0;
-            int topRow = 0;
-            int bottomRow = 0;
+            //int rightCol = 0;
+            //int leftCol = 0;
+            //int topRow = 0;
+            //int bottomRow = 0;
 
 
 
@@ -52,17 +52,14 @@ namespace ConwaysGame
                 {
                     //Console.WriteLine($"i:{i} j:{j} cells:{cells[i,j]}");
                     result[i, j] = CheckCell(cells, i, j);
-                    // if(result[i,j] == 1)
-                    //   Console.Write("░░");
-                    // else
-                    //   Console.Write("▓▓");
-                    if (result[0, j] == 1 && (j > 0 ? (result[0, j - 1] == 1) : true)) { topRow++; }
-                    if (result[result.GetLength(0) - 1, j] == 1 && (j > 0 ? (result[result.GetLength(0) - 1, j - 1] == 1) : true)) { bottomRow++; }
+
+                    //if (result[0, j] == 1 && (j > 0 ? (result[0, j - 1] == 1) : true)) { topRow++; }
+                    //if (result[result.GetLength(0) - 1, j] == 1 && (j > 0 ? (result[result.GetLength(0) - 1, j - 1] == 1) : true)) { bottomRow++; }
                 }
 
-                if (result[i, 0] == 1 && (i > 0 ? (result[i - 1, 0] == 1) : true)) { leftCol++; }
+                //if (result[i, 0] == 1 && (i > 0 ? (result[i - 1, 0] == 1) : true)) { leftCol++; }
 
-                if (result[i, result.GetLength(1) - 1] == 1 && (i > 0 ? (result[i - 1, cells.GetLength(1) - 1] == 1) : true)) { rightCol++; }
+                //if (result[i, result.GetLength(1) - 1] == 1 && (i > 0 ? (result[i - 1, cells.GetLength(1) - 1] == 1) : true)) { rightCol++; }
 
                 //  Console.WriteLine();
             }
@@ -73,34 +70,34 @@ namespace ConwaysGame
 
 
             // Anticipate growth and resize array
-            if (topRow >= 2)
-            {
-                // add row to top
-                // Console.WriteLine("Add Top Row");
-                result = AddTopRow(result);
-                //nextI++;
-            }
-            if (bottomRow >= 2)
-            {
-                // add row to bottom
-                // Console.WriteLine("Add Bottom Row");
-                result = AddBottomRow(result);
-                // nextI++;
-            }
-            if (leftCol >= 2)
-            {
-                // add col to left
-                // Console.WriteLine("Add Left Col");
-                result = AddLeftCol(result);
-                // nextJ++;
-            }
-            if (rightCol >= 2)
-            {
-                // add col to right
-                // Console.WriteLine("Add Right Col");
-                result = AddRightCol(result);
-                // nextJ++;
-            }
+            //if (topRow >= 2)
+            //{
+            //    // add row to top
+            //    // Console.WriteLine("Add Top Row");
+            //    result = AddTopRow(result);
+            //    //nextI++;
+            //}
+            //if (bottomRow >= 2)
+            //{
+            //    // add row to bottom
+            //    // Console.WriteLine("Add Bottom Row");
+            //    result = AddBottomRow(result);
+            //    // nextI++;
+            //}
+            //if (leftCol >= 2)
+            //{
+            //    // add col to left
+            //    // Console.WriteLine("Add Left Col");
+            //    result = AddLeftCol(result);
+            //    // nextJ++;
+            //}
+            //if (rightCol >= 2)
+            //{
+            //    // add col to right
+            //    // Console.WriteLine("Add Right Col");
+            //    result = AddRightCol(result);
+            //    // nextJ++;
+            //}
 
             //Display(result);
 
